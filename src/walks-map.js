@@ -36,6 +36,7 @@ class Walk extends React.Component {
 
 class WalksMap extends React.Component {
   render() {
+    const walkObjects = walks.map(walk => <Walk positions={walk.path} />);
     return (
       <Map id='mapid' center={position} zoom={9}>
         <TileLayer
@@ -44,9 +45,7 @@ class WalksMap extends React.Component {
           accessToken='pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA'
           id='mapbox.outdoors'
         />
-        <Walk positions={walks[0].path} />
-        <Walk positions={walks[1].path} />
-        <Walk positions={walks[2].path} />
+        {walkObjects}
       </Map>
     );
   }
