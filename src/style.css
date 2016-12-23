@@ -1,0 +1,122 @@
+#mapid {
+  height: 90vh;
+}
+
+path {
+  stroke: #1175FF;
+  stroke-width: 2px;
+  opacity: .8;
+
+  transition: stroke .2s, stroke-width .2s;
+  transition-timing-function: ease-in;
+}
+
+path.selected {
+  stroke: #FF9F00;
+  stroke-width: 3px;
+
+  transition: stroke .2s, stroke-width .2s;
+  transition-timing-function: ease-out;
+}
+
+path.hover {
+  stroke-width: 4px;
+  transition: stroke-width .2s;
+  transition-timing-function: ease;
+  opacity: 1;
+}
+
+path.hidden {
+  opacity: 0;
+  stroke-width: 20px;
+}
+
+.walk-details {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    max-height: 50%;
+
+    margin-left:20vw;
+    width:60vw;
+    margin-top:10px;
+}
+
+.walk-header div {
+  text-align: center;
+}
+
+.walk-header .title {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 3px;
+  padding-bottom: 2px;
+}
+
+.walk-header .distance {
+  /* font-size: 16px; */
+  /* padding-left: .5em; */
+  color: #777;
+}
+
+.walk-header .info {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  padding-bottom: .5em;
+}
+
+.walk-header .info .date {
+}
+
+/* .walk-details .details { */
+/*   display: none; */
+/* } */
+
+.walk-details .details {
+  display: block;
+  text-align: center;
+}
+
+
+.participant-header {
+  text-align: center;
+  margin: 5px;
+}
+
+.participant-header .title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.participant-header .distance {
+  color: #777;
+  font-size: 12px;
+}
+
+.participant-info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+
+    margin-left:20vw;
+    width:60vw;
+    margin-top:10px;
+
+/*     display: none; */
+}
+
+a.participant {
+  cursor: pointer;
+}
+
+a.participant:hover {
+  cursor: pointer;
+  color: #FF9F00;
+}
