@@ -1,7 +1,38 @@
 import React from 'react';
-import { Map, TileLayer } from 'react-leaflet';
+import { Map, Polyline, TileLayer } from 'react-leaflet';
+import walks from './walks';
 
 const position = [52.45, 13.30];
+
+class Walk extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      hover: 'visible'
+    };
+  }
+  handleMouseOver() {
+    this.setState({ hover: 'hover' });
+  }
+  handleMouseOut() {
+    this.setState({ hover: 'visible' });
+  }
+  render() {
+    return (
+      <div>
+        <Polyline
+          className={this.state.hover}
+          positions={this.props.positions} />
+        <Polyline
+          className='hidden'
+          positions={this.props.positions}
+          onMouseOver={() => this.handleMouseOver()}
+          onMouseOut={() => this.handleMouseOut()}
+        />
+      </div>
+    );
+  }
+}
 
 class WalksMap extends React.Component {
   render() {
@@ -13,6 +44,9 @@ class WalksMap extends React.Component {
           accessToken='pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA'
           id='mapbox.outdoors'
         />
+        <Walk positions={walks[0].path} />
+        <Walk positions={walks[1].path} />
+        <Walk positions={walks[2].path} />
       </Map>
     );
   }
