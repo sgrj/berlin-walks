@@ -8,20 +8,20 @@ class Walk extends React.Component {
   constructor() {
     super();
     this.state = {
-      hover: 'visible'
+      hover: false
     };
   }
   handleMouseOver() {
-    this.setState({ hover: 'hover' });
+    this.setState({ hover: true });
   }
   handleMouseOut() {
-    this.setState({ hover: 'visible' });
+    this.setState({ hover: false });
   }
   render() {
     return (
       <div>
         <Polyline
-          className={this.state.hover}
+          className={this.state.hover ? 'hover' : ''}
           positions={this.props.positions} />
         <Polyline
           className='hidden'
