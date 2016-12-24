@@ -75,8 +75,6 @@ path.hidden {
 }
 
 .walk-details .distance {
-  /* font-size: 16px; */
-  /* padding-left: .5em; */
   color: #777;
 }
 
@@ -89,10 +87,6 @@ path.hidden {
 
 .walk-details .info .date {
 }
-
-/* .walk-details .details { */
-/*   display: none; */
-/* } */
 
 .walk-details .details {
   display: block;

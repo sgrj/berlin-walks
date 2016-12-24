@@ -56,9 +56,7 @@ function WalkDetails(props) {
   if (props.walk == null) {
     return (
       <div className='walk-details empty'>
-        <div className='walk-header'>
-          <div className='title'>Select a walk</div>
-        </div>
+        <div className='title'>Select a walk</div>
       </div>
     );
   }
