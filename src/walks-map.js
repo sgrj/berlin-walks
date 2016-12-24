@@ -28,6 +28,7 @@ class Walk extends React.Component {
           positions={this.props.positions}
           onMouseOver={() => this.handleMouseOver()}
           onMouseOut={() => this.handleMouseOut()}
+          onClick={() => this.props.onClick()}
         />
       </div>
     );
@@ -57,11 +58,20 @@ class WalksMap extends React.Component {
     super();
 
     this.state = {
-      walk: walks[0]
+      selectedWalk: walks[0]
     };
   }
+  selectWalk(walk) {
+    this.setState({ selectedWalk: walk  });
+  }
   render() {
-    const walkObjects = walks.map((walk, i) => <Walk positions={walk.path} key={i}/>);
+    const walkObjects = walks.map((walk, i) =>
+      <Walk
+        positions={walk.path}
+        key={i}
+        onClick={() => this.selectWalk(walk)}
+        />
+    );
     const totalDistance = distance(walks);
     const totalWalks = walks.length;
 
@@ -83,14 +93,14 @@ class WalksMap extends React.Component {
           </div>
           <div className='walk-details'>
             <div className='walk-header'>
-              <div className='title'>{this.state.walk.title}</div>
+              <div className='title'>{this.state.selectedWalk.title}</div>
               <div className='info'>
-                <span className='date'>{this.state.walk.date}</span>
+                <span className='date'>{this.state.selectedWalk.date}</span>
                 &nbsp;–&nbsp;
-                <span className='distance'>{this.state.walk.distance} km</span>
+                <span className='distance'>{this.state.selectedWalk.distance} km</span>
                 &nbsp;–&nbsp;
                 <span className='participants'>
-                  {this.state.walk.participants.length} walkers
+                  {this.state.selectedWalk.participants.length} walkers
                 </span>
               </div>
             </div>
