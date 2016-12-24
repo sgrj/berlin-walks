@@ -52,6 +52,25 @@ function distance(walks) {
   }, 0);
 }
 
+function WalkDetails(props) {
+  return (
+    <div className='walk-details'>
+      <div className='walk-header'>
+        <div className='title'>{props.walk.title}</div>
+        <div className='info'>
+          <span className='date'>{props.walk.date}</span>
+          &nbsp;–&nbsp;
+          <span className='distance'>{props.walk.distance} km</span>
+          &nbsp;–&nbsp;
+          <span className='participants'>
+            {props.walk.participants.length} walkers
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 
 class WalksMap extends React.Component {
   constructor() {
@@ -91,20 +110,7 @@ class WalksMap extends React.Component {
             <div className='title'>Berlin Walks</div>
             <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
           </div>
-          <div className='walk-details'>
-            <div className='walk-header'>
-              <div className='title'>{this.state.selectedWalk.title}</div>
-              <div className='info'>
-                <span className='date'>{this.state.selectedWalk.date}</span>
-                &nbsp;–&nbsp;
-                <span className='distance'>{this.state.selectedWalk.distance} km</span>
-                &nbsp;–&nbsp;
-                <span className='participants'>
-                  {this.state.selectedWalk.participants.length} walkers
-                </span>
-              </div>
-            </div>
-          </div>
+          <WalkDetails walk={this.state.selectedWalk} />
         </div>
       </div>
     );
