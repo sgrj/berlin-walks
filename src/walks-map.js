@@ -34,19 +34,39 @@ class Walk extends React.Component {
   }
 }
 
+function distance(walks) {
+  return walks.map(function(walk) {
+    return walk.distance;
+  }).reduce(function(x, y) {
+    return x + y;
+  }, 0);
+}
+
 class WalksMap extends React.Component {
   render() {
-    const walkObjects = walks.map(walk => <Walk positions={walk.path} />);
+    const walkObjects = walks.map((walk, i) => <Walk positions={walk.path} key={i}/>);
+    const totalDistance = distance(walks);
+    const totalWalks = walks.length;
     return (
-      <Map id='mapid' center={position} zoom={9}>
-        <TileLayer
-          url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
-          attribution='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
-          accessToken='pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA'
-          id='mapbox.outdoors'
-        />
-        {walkObjects}
-      </Map>
+      <div>
+        <Map id='mapid' center={position} zoom={9}>
+          <TileLayer
+            url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
+            attribution='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
+            accessToken='pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA'
+            id='mapbox.outdoors'
+          />
+          {walkObjects}
+        </Map>
+        <div id='overlays'>
+          <div className='participant-info'>
+            <div className='participant-header'>
+              <div className='title'>Berlin Walks</div>
+              <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

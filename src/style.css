@@ -1,5 +1,17 @@
+body {
+  margin: 8px;
+}
+
 #mapid {
   height: 90vh;
+}
+
+#overlays {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  margin: 8px;
+  z-index: 10000;
 }
 
 path {
