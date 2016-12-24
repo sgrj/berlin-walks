@@ -53,8 +53,7 @@ path.hidden {
     border-radius: 5px;
     max-height: 50%;
 
-    margin-left:20vw;
-    width:60vw;
+    width:100%;
     margin-top:10px;
 }
 
@@ -63,7 +62,7 @@ path.hidden {
 }
 
 .walk-header .title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   padding-top: 3px;
   padding-bottom: 2px;
