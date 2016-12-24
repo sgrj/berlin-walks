@@ -1,6 +1,7 @@
 import React from 'react';
 import { Map, Polyline, TileLayer } from 'react-leaflet';
 import walks from './walks';
+import _ from 'lodash';
 
 const POSITION = [52.45, 13.30];
 const TILE_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
@@ -63,6 +64,14 @@ function WalkDetails(props) {
 
   const separator = ' – ';
 
+  const participatsLinks = props.walk.participants.map(function(participant) {
+    return <a className='participant'>{participant}</a>;
+  });
+
+  const participantsList = _.range(participatsLinks.length * 2 - 1).map(function(i) {
+    return i % 2 === 0 ? participatsLinks[i / 2] : ' • ';
+  });
+
   return (
     <div className='walk-details'>
       <div className='title'>{props.walk.title}</div>
@@ -74,6 +83,9 @@ function WalkDetails(props) {
         <span className='participants'>
           {props.walk.participants.length} walkers
         </span>
+      </div>
+      <div className='details'>
+        {participantsList}
       </div>
     </div>
   );
