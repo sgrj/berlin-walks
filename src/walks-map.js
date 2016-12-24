@@ -53,12 +53,17 @@ const ACCESS_TOKEN =
 const TILE_ID = 'mapbox.outdoors';
 
 class WalksMap extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      walk: walks[0]
+    };
+  }
   render() {
     const walkObjects = walks.map((walk, i) => <Walk positions={walk.path} key={i}/>);
     const totalDistance = distance(walks);
     const totalWalks = walks.length;
-
-    const walk = walks[0];
 
     return (
       <div>
@@ -76,18 +81,20 @@ class WalksMap extends React.Component {
             <div className='title'>Berlin Walks</div>
             <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
           </div>
-      <div className='walk-details'>
-          <div className='walk-header'>
-            <div className='title'>{walk.title}</div>
-            <div className='info'>
-              <span className='date'>{walk.date}</span>
-              &nbsp;–&nbsp;
-              <span className='distance'>{walk.distance} km</span>
-              &nbsp;–&nbsp;
-              <span className='participants'>{walk.participants.length} walkers</span>
+          <div className='walk-details'>
+            <div className='walk-header'>
+              <div className='title'>{this.state.walk.title}</div>
+              <div className='info'>
+                <span className='date'>{this.state.walk.date}</span>
+                &nbsp;–&nbsp;
+                <span className='distance'>{this.state.walk.distance} km</span>
+                &nbsp;–&nbsp;
+                <span className='participants'>
+                  {this.state.walk.participants.length} walkers
+                </span>
+              </div>
             </div>
           </div>
-      </div>
         </div>
       </div>
     );
