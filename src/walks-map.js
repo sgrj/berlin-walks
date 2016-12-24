@@ -42,6 +42,16 @@ function distance(walks) {
   }, 0);
 }
 
+
+const TILE_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
+const TILE_ATTRIBUTION =
+  'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,' +
+  ' <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,' +
+  ' Imagery © <a href="http://mapbox.com">Mapbox</a>';
+const ACCESS_TOKEN =
+  'pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA';
+const TILE_ID = 'mapbox.outdoors';
+
 class WalksMap extends React.Component {
   render() {
     const walkObjects = walks.map((walk, i) => <Walk positions={walk.path} key={i}/>);
@@ -51,19 +61,17 @@ class WalksMap extends React.Component {
       <div>
         <Map id='mapid' center={position} zoom={9}>
           <TileLayer
-            url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'
-            attribution='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>'
-            accessToken='pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA'
-            id='mapbox.outdoors'
+            url={TILE_URL}
+            attribution={TILE_ATTRIBUTION}
+            accessToken={ACCESS_TOKEN}
+            id={TILE_ID}
           />
           {walkObjects}
         </Map>
         <div id='overlays'>
-          <div className='participant-info'>
-            <div className='participant-header'>
-              <div className='title'>Berlin Walks</div>
-              <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
-            </div>
+          <div className='global-info'>
+            <div className='title'>Berlin Walks</div>
+            <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
           </div>
         </div>
       </div>

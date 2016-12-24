@@ -7,11 +7,12 @@ body {
 }
 
 #overlays {
-  width: 100%;
   position: absolute;
   top: 0;
   margin: 8px;
   z-index: 10000;
+  width: 60vw;
+  margin-left: 20vw;
 }
 
 path {
@@ -94,22 +95,17 @@ path.hidden {
 }
 
 
-.participant-header {
-  text-align: center;
-  margin: 5px;
-}
-
-.participant-header .title {
+.global-info .title {
   font-size: 16px;
   font-weight: bold;
 }
 
-.participant-header .distance {
+.global-info .distance {
   color: #777;
   font-size: 12px;
 }
 
-.participant-info {
+.global-info {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     background: white;
@@ -117,11 +113,11 @@ path.hidden {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
 
-    margin-left:20vw;
-    width:60vw;
-    margin-top:10px;
+    width:100%;
 
-/*     display: none; */
+    text-align: center;
+
+    margin-top:10px;
 }
 
 a.participant {
