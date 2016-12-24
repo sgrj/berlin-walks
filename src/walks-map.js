@@ -55,7 +55,7 @@ function distance(walks) {
 function WalkDetails(props) {
   if (props.walk == null) {
     return (
-      <div className='walk-details'>
+      <div className='walk-details empty'>
         <div className='walk-header'>
           <div className='title'>Select a walk</div>
         </div>
@@ -63,19 +63,19 @@ function WalkDetails(props) {
     );
   }
 
+  const separator = ' – ';
+
   return (
     <div className='walk-details'>
-      <div className='walk-header'>
-        <div className='title'>{props.walk.title}</div>
-        <div className='info'>
-          <span className='date'>{props.walk.date}</span>
-          &nbsp;–&nbsp;
-          <span className='distance'>{props.walk.distance} km</span>
-          &nbsp;–&nbsp;
-          <span className='participants'>
-            {props.walk.participants.length} walkers
-          </span>
-        </div>
+      <div className='title'>{props.walk.title}</div>
+      <div className='info'>
+        <span className='date'>{props.walk.date}</span>
+        {separator}
+        <span className='distance'>{props.walk.distance} km</span>
+        {separator}
+        <span className='participants'>
+          {props.walk.participants.length} walkers
+        </span>
       </div>
     </div>
   );
