@@ -53,6 +53,16 @@ function distance(walks) {
 }
 
 function WalkDetails(props) {
+  if (props.walk == null) {
+    return (
+      <div className='walk-details'>
+        <div className='walk-header'>
+          <div className='title'>Select a walk</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className='walk-details'>
       <div className='walk-header'>
@@ -77,7 +87,7 @@ class WalksMap extends React.Component {
     super();
 
     this.state = {
-      selectedWalk: walks[0]
+      selectedWalk: null
     };
   }
   selectWalk(walk) {
