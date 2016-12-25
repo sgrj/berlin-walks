@@ -89,6 +89,7 @@ var walks = [
     'Philipp',
     'Ralf',
     'Sandra',
+    'Sebastian',
     'Stefan',
     'Thomas',
     'Wiebke'
