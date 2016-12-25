@@ -118,7 +118,6 @@ function GlobalInfo(props) {
   );
 }
 
-
 class WalksMap extends React.Component {
   constructor() {
     super();
@@ -127,6 +126,9 @@ class WalksMap extends React.Component {
       selectedWalk: null,
       selectedName: null
     };
+  }
+  isHighlighted(walk) {
+    return walk.participants.indexOf(this.state.selectedName) >= 0
   }
   selectWalk(walk) {
     this.setState({ selectedWalk: walk });
@@ -139,13 +141,13 @@ class WalksMap extends React.Component {
       <Walk
         positions={walk.path}
         key={i}
-        selected={walk.participants.indexOf(this.state.selectedName) >= 0}
+        selected={this.isHighlighted(walk)}
         onClick={() => this.selectWalk(walk)}
         />
     );
 
     const selectedWalks = this.state.selectedName ?
-      this.props.walks.filter(walk => walk.participants.indexOf(this.state.selectedName) >= 0) :
+      this.props.walks.filter(walk => this.isHighlighted(walk)) :
       this.props.walks;
 
     return (
