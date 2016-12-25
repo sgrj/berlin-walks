@@ -106,10 +106,14 @@ function GlobalInfo(props) {
   const totalDistance = distance(props.walks);
   const totalWalks = props.walks.length;
 
+  const displayName = props.name ? props.name + '\'s' : 'Berlin';
+
+  const prefix = props.name ? props.name + ' walked ' : '';
+
   return (
     <div className='global-info'>
-      <div className='title'>Berlin Walks</div>
-      <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
+      <div className='title'>{displayName} Walks</div>
+      <div className='distance'>{prefix}{totalDistance} km on {totalWalks} walks</div>
     </div>
   );
 }
@@ -140,6 +144,10 @@ class WalksMap extends React.Component {
         />
     );
 
+    const selectedWalks = this.state.selectedName ?
+      this.props.walks.filter(walk => walk.participants.indexOf(this.state.selectedName) >= 0) :
+      this.props.walks;
+
     return (
       <div>
         <Map id='mapid' center={POSITION} zoom={9}>
@@ -152,7 +160,7 @@ class WalksMap extends React.Component {
           {walkObjects}
         </Map>
         <div id='overlays'>
-          <GlobalInfo walks={this.props.walks} />
+          <GlobalInfo walks={selectedWalks} name={this.state.selectedName} />
           <WalkDetails walk={this.state.selectedWalk} onClickName={(name) => this.selectName(name)} />
         </div>
       </div>
