@@ -1,6 +1,7 @@
 import React from 'react';
 import { Map, Polyline, TileLayer } from 'react-leaflet';
 import _ from 'lodash';
+import { DomEvent } from 'leaflet';
 
 const POSITION = [52.45, 13.30];
 const TILE_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
@@ -44,7 +45,10 @@ class Walk extends React.Component {
           positions={this.props.positions}
           onMouseOver={() => this.handleMouseOver()}
           onMouseOut={() => this.handleMouseOut()}
-          onClick={() => this.props.onClick()}
+          onClick={e => {
+            this.props.onClick();
+            DomEvent.stopPropagation(e);
+          }}
         />
       </div>
     );
@@ -128,13 +132,19 @@ class WalksMap extends React.Component {
     };
   }
   isHighlighted(walk) {
-    return walk.participants.indexOf(this.state.selectedName) >= 0
+    return walk.participants.indexOf(this.state.selectedName) >= 0;
   }
   selectWalk(walk) {
     this.setState({ selectedWalk: walk });
   }
   selectName(name) {
     this.setState({ selectedName: name });
+  }
+  reset() {
+    this.setState({
+      selectedWalk: null,
+      selectedName: null
+    });
   }
   render() {
     const walkObjects = this.props.walks.map((walk, i) =>
@@ -152,7 +162,7 @@ class WalksMap extends React.Component {
 
     return (
       <div>
-        <Map id='mapid' center={POSITION} zoom={9}>
+        <Map id='mapid' center={POSITION} zoom={9} onClick={() => this.reset()}>
           <TileLayer
             url={TILE_URL}
             attribution={TILE_ATTRIBUTION}
