@@ -91,6 +91,18 @@ function WalkDetails(props) {
   );
 }
 
+function GlobalInfo(props) {
+  const totalDistance = distance(props.walks);
+  const totalWalks = props.walks.length;
+
+  return (
+    <div className='global-info'>
+      <div className='title'>Berlin Walks</div>
+      <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
+    </div>
+  );
+}
+
 
 class WalksMap extends React.Component {
   constructor() {
@@ -111,8 +123,6 @@ class WalksMap extends React.Component {
         onClick={() => this.selectWalk(walk)}
         />
     );
-    const totalDistance = distance(walks);
-    const totalWalks = walks.length;
 
     return (
       <div>
@@ -126,10 +136,7 @@ class WalksMap extends React.Component {
           {walkObjects}
         </Map>
         <div id='overlays'>
-          <div className='global-info'>
-            <div className='title'>Berlin Walks</div>
-            <div className='distance'>{totalDistance} km on {totalWalks} walks</div>
-          </div>
+          <GlobalInfo walks={walks} />
           <WalkDetails walk={this.state.selectedWalk} />
         </div>
       </div>
