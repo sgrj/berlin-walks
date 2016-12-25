@@ -3,7 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 
 import WalkPath from './walk-path';
 import WalkDetails from './walk-details';
-import GlobalInfo from './global-info';
+import ParticipantDetails from './participant-details';
 
 
 const POSITION = [52.45, 13.30];
@@ -67,7 +67,7 @@ class WalksMap extends React.Component {
           {walkObjects}
         </Map>
         <div id='overlays'>
-          <GlobalInfo
+          <ParticipantDetails
             walks={highlightedWalks}
             name={this.state.selectedName} />
           <WalkDetails

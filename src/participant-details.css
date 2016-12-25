@@ -1,4 +1,4 @@
-.global-info {
+.participant-details {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     background: white;
@@ -13,12 +13,12 @@
     margin-top:10px;
 }
 
-.global-info .title {
+.participant-details .title {
   font-size: 16px;
   font-weight: bold;
 }
 
-.global-info .distance {
+.participant-details .distance {
   color: #777;
   font-size: 12px;
 }

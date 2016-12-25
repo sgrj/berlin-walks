@@ -1,5 +1,5 @@
 import React from 'react';
-import './global-info.css';
+import './participant-details.css';
 
 function distance(walks) {
   return walks.map(function(walk) {
@@ -10,7 +10,7 @@ function distance(walks) {
 }
 
 
-function GlobalInfo(props) {
+function ParticipantDetails(props) {
   const totalDistance = distance(props.walks);
   const totalWalks = props.walks.length;
 
@@ -21,11 +21,11 @@ function GlobalInfo(props) {
   const prefix = props.name ? props.name + ' walked ' : '';
 
   return (
-    <div className='global-info'>
+    <div className='participant-details'>
       <div className='title'>{displayName} Walks</div>
       <div className='distance'>{prefix}{totalDistance} km on {totalWalks} walks</div>
     </div>
   );
 }
 
-export default GlobalInfo;
+export default ParticipantDetails;
