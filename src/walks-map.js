@@ -65,7 +65,7 @@ function WalkDetails(props) {
   const separator = ' – ';
 
   const participatsLinks = props.walk.participants.map(function(participant) {
-    return <a className='participant'>{participant}</a>;
+    return <a className='participant' key={participant}>{participant}</a>;
   });
 
   const participantsList = _.range(participatsLinks.length * 2 - 1).map(function(i) {
