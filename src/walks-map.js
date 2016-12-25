@@ -3,6 +3,7 @@ import { Map, TileLayer } from 'react-leaflet';
 
 import WalkPath from './walk-path';
 import WalkDetails from './walk-details';
+import GlobalInfo from './global-info';
 
 
 const POSITION = [52.45, 13.30];
@@ -15,34 +16,6 @@ const ACCESS_TOKEN =
   'pk.eyJ1IjoiY3JlcGVscyIsImEiOiJjaXdheGxpdTcwMDF2MnpvNmNucDhrdnN0In0.WiXElc_RJUWKB_CFqssrBA';
 const TILE_ID = 'mapbox.outdoors';
 
-
-
-function distance(walks) {
-  return walks.map(function(walk) {
-    return walk.distance;
-  }).reduce(function(x, y) {
-    return x + y;
-  }, 0);
-}
-
-
-function GlobalInfo(props) {
-  const totalDistance = distance(props.walks);
-  const totalWalks = props.walks.length;
-
-  const displayName = props.name ?
-    props.name + '\'' + (props.name.endsWith('s') ? '' : 's') :
-    'Berlin';
-
-  const prefix = props.name ? props.name + ' walked ' : '';
-
-  return (
-    <div className='global-info'>
-      <div className='title'>{displayName} Walks</div>
-      <div className='distance'>{prefix}{totalDistance} km on {totalWalks} walks</div>
-    </div>
-  );
-}
 
 class WalksMap extends React.Component {
   constructor() {

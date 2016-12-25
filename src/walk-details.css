@@ -44,3 +44,11 @@
   text-align: center;
 }
 
+a.participant {
+  color: #1175FF;
+  cursor: pointer;
+}
+
+a.participant:hover {
+  color: #FF9F00;
+}
