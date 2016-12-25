@@ -67,8 +67,12 @@ class WalksMap extends React.Component {
           {walkObjects}
         </Map>
         <div id='overlays'>
-          <GlobalInfo walks={selectedWalks} name={this.state.selectedName} />
-          <WalkDetails walk={this.state.selectedWalk} onClickName={(name) => this.selectName(name)} />
+          <GlobalInfo
+            walks={selectedWalks}
+            name={this.state.selectedName} />
+          <WalkDetails
+            walk={this.state.selectedWalk}
+            onClickName={(name) => this.selectName(name)} />
         </div>
       </div>
     );
