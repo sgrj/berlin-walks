@@ -46,12 +46,12 @@ class WalksMap extends React.Component {
       <WalkPath
         positions={walk.path}
         key={i}
-        selected={this.isHighlighted(walk)}
+        highlighted={this.isHighlighted(walk)}
         onClick={() => this.selectWalk(walk)}
         />
     );
 
-    const selectedWalks = this.state.selectedName ?
+    const highlightedWalks = this.state.selectedName ?
       this.props.walks.filter(walk => this.isHighlighted(walk)) :
       this.props.walks;
 
@@ -68,7 +68,7 @@ class WalksMap extends React.Component {
         </Map>
         <div id='overlays'>
           <GlobalInfo
-            walks={selectedWalks}
+            walks={highlightedWalks}
             name={this.state.selectedName} />
           <WalkDetails
             walk={this.state.selectedWalk}

@@ -7,7 +7,7 @@ path {
   transition-timing-function: ease-in;
 }
 
-path.selected {
+path.highlighted {
   stroke: #FF9F00;
   stroke-width: 2px;
 
