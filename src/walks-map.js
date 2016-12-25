@@ -1,6 +1,5 @@
 import React from 'react';
 import { Map, Polyline, TileLayer } from 'react-leaflet';
-import walks from './walks';
 import _ from 'lodash';
 
 const POSITION = [52.45, 13.30];
@@ -116,7 +115,7 @@ class WalksMap extends React.Component {
     this.setState({ selectedWalk: walk  });
   }
   render() {
-    const walkObjects = walks.map((walk, i) =>
+    const walkObjects = this.props.walks.map((walk, i) =>
       <Walk
         positions={walk.path}
         key={i}
@@ -136,7 +135,7 @@ class WalksMap extends React.Component {
           {walkObjects}
         </Map>
         <div id='overlays'>
-          <GlobalInfo walks={walks} />
+          <GlobalInfo walks={this.props.walks} />
           <WalkDetails walk={this.state.selectedWalk} />
         </div>
       </div>
