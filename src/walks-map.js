@@ -27,10 +27,17 @@ class Walk extends React.Component {
     this.setState({ hover: false });
   }
   render() {
+    var className = '';
+    if (this.state.hover) {
+      className += ' hover';
+    }
+    if (this.props.selected) {
+      className += ' selected';
+    }
     return (
       <div>
         <Polyline
-          className={this.state.hover ? 'hover' : ''}
+          className={className}
           positions={this.props.positions} />
         <Polyline
           className='hidden'
@@ -63,9 +70,14 @@ function WalkDetails(props) {
 
   const separator = ' – ';
 
-  const participatsLinks = props.walk.participants.map(function(participant) {
-    return <a className='participant' key={participant}>{participant}</a>;
-  });
+  const participatsLinks = props.walk.participants.map(participant =>
+    <a
+      className='participant'
+      onClick={() => props.onClickName(participant)}
+      key={participant}>
+      {participant}
+    </a>
+  );
 
   const participantsList = _.range(participatsLinks.length * 2 - 1).map(function(i) {
     return i % 2 === 0 ? participatsLinks[i / 2] : ' • ';
@@ -108,17 +120,22 @@ class WalksMap extends React.Component {
     super();
 
     this.state = {
-      selectedWalk: null
+      selectedWalk: null,
+      selectedName: null
     };
   }
   selectWalk(walk) {
-    this.setState({ selectedWalk: walk  });
+    this.setState({ selectedWalk: walk });
+  }
+  selectName(name) {
+    this.setState({ selectedName: name });
   }
   render() {
     const walkObjects = this.props.walks.map((walk, i) =>
       <Walk
         positions={walk.path}
         key={i}
+        selected={walk.participants.indexOf(this.state.selectedName) >= 0}
         onClick={() => this.selectWalk(walk)}
         />
     );
@@ -136,7 +153,7 @@ class WalksMap extends React.Component {
         </Map>
         <div id='overlays'>
           <GlobalInfo walks={this.props.walks} />
-          <WalkDetails walk={this.state.selectedWalk} />
+          <WalkDetails walk={this.state.selectedWalk} onClickName={(name) => this.selectName(name)} />
         </div>
       </div>
     );
