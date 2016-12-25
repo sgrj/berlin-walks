@@ -1,7 +1,9 @@
 import React from 'react';
-import { Map, Polyline, TileLayer } from 'react-leaflet';
+import { Map, TileLayer } from 'react-leaflet';
 import _ from 'lodash';
-import { DomEvent } from 'leaflet';
+
+import WalkPath from './walk-path';
+
 
 const POSITION = [52.45, 13.30];
 const TILE_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}';
@@ -14,46 +16,6 @@ const ACCESS_TOKEN =
 const TILE_ID = 'mapbox.outdoors';
 
 
-class Walk extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      hover: false
-    };
-  }
-  handleMouseOver() {
-    this.setState({ hover: true });
-  }
-  handleMouseOut() {
-    this.setState({ hover: false });
-  }
-  render() {
-    var className = '';
-    if (this.state.hover) {
-      className += ' hover';
-    }
-    if (this.props.selected) {
-      className += ' selected';
-    }
-    return (
-      <div>
-        <Polyline
-          className={className}
-          positions={this.props.positions} />
-        <Polyline
-          className='hidden'
-          positions={this.props.positions}
-          onMouseOver={() => this.handleMouseOver()}
-          onMouseOut={() => this.handleMouseOut()}
-          onClick={e => {
-            this.props.onClick();
-            DomEvent.stopPropagation(e);
-          }}
-        />
-      </div>
-    );
-  }
-}
 
 function distance(walks) {
   return walks.map(function(walk) {
@@ -150,7 +112,7 @@ class WalksMap extends React.Component {
   }
   render() {
     const walkObjects = this.props.walks.map((walk, i) =>
-      <Walk
+      <WalkPath
         positions={walk.path}
         key={i}
         selected={this.isHighlighted(walk)}

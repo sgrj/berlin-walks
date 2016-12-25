@@ -1,0 +1,30 @@
+path {
+  stroke: #1175FF;
+  stroke-width: 2px;
+  opacity: .8;
+
+  transition: stroke .2s, stroke-width .2s;
+  transition-timing-function: ease-in;
+}
+
+path.selected {
+  stroke: #FF9F00;
+  stroke-width: 2px;
+
+  transition: stroke .2s, stroke-width .2s;
+  transition-timing-function: ease-out;
+}
+
+path.hover {
+  stroke-width: 4px;
+  transition: stroke-width .2s;
+  transition-timing-function: ease;
+  opacity: 1;
+}
+
+path.hidden {
+  opacity: 0;
+  stroke-width: 20px;
+}
+
+
