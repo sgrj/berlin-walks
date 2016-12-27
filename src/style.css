@@ -1,9 +1,9 @@
 body {
-  margin: 8px;
+  margin: 0px;
 }
 
 #mapid {
-  height: calc(100vh - 16px);
+  height: calc(100vh - 0px);
 }
 
 #overlays {
@@ -11,6 +11,8 @@ body {
   top: 0;
   margin: 8px;
   z-index: 10000;
-  width: 60vw;
-  margin-left: 20vw;
+  height:100%;
+  width:100%;
+  margin: 0;
+  pointer-events: none;
 }
