@@ -56,8 +56,8 @@ class WalksMap extends React.Component {
       this.props.walks;
 
     return (
-      <div>
-        <Map id='mapid' center={POSITION} zoom={9} onClick={() => this.reset()}>
+      <div id='walks-container'>
+        <Map id='map-container' center={POSITION} zoom={9} onClick={() => this.reset()}>
           <TileLayer
             url={TILE_URL}
             attribution={TILE_ATTRIBUTION}
@@ -70,10 +70,10 @@ class WalksMap extends React.Component {
           <ParticipantDetails
             walks={highlightedWalks}
             name={this.state.selectedName} />
-          <WalkDetails
-            walk={this.state.selectedWalk}
-            onClickName={(name) => this.selectName(name)} />
         </div>
+        <WalkDetails
+          walk={this.state.selectedWalk}
+          onClickName={(name) => this.selectName(name)} />
       </div>
     );
   }

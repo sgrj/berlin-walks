@@ -2,8 +2,15 @@ body {
   margin: 0px;
 }
 
-#mapid {
-  height: calc(100vh - 0px);
+#walks-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#map-container {
+  height: 100%;
+  flex-shrink: 1;
 }
 
 #overlays {
