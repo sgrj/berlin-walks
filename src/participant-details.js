@@ -23,7 +23,9 @@ function ParticipantDetails(props) {
   return (
     <div className='participant-details'>
       <div className='title'>{displayName} Walks</div>
-      <div className='distance'>{prefix}{totalDistance} km on {totalWalks} walks</div>
+      <div className='distance'>
+        {prefix}{totalDistance} km on {totalWalks} walk{totalWalks === 1 ? '' : 's'}
+      </div>
     </div>
   );
 }
