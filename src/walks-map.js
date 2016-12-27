@@ -47,6 +47,7 @@ class WalksMap extends React.Component {
         positions={walk.path}
         key={i}
         highlighted={this.isHighlighted(walk)}
+        selected={walk === this.state.selectedWalk}
         onClick={() => this.selectWalk(walk)}
         />
     );
