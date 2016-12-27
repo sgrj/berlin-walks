@@ -46,6 +46,15 @@
   text-align: center;
 }
 
+.walk-details .blog {
+  color: #1175FF;
+  text-decoration: none;
+}
+
+.walk-details .blog:hover {
+  color: #FF9F00;
+}
+
 a.participant {
   color: #1175FF;
   cursor: pointer;
