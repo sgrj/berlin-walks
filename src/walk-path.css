@@ -15,6 +15,10 @@ path.highlighted {
   transition-timing-function: ease-out;
 }
 
+path.selected {
+  stroke-width: 3.5px;
+}
+
 path.hover {
   stroke-width: 4px;
   transition: stroke-width .2s;

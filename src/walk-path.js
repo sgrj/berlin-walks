@@ -18,8 +18,11 @@ class WalkPath extends React.Component {
   }
   render() {
     var className = '';
-    if (this.state.hover || this.props.selected) {
+    if (this.state.hover) {
       className += ' hover';
+    }
+    if (this.props.selected) {
+      className += ' selected';
     }
     if (this.props.highlighted) {
       className += ' highlighted';

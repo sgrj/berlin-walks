@@ -1,6 +1,7 @@
 .walk-details {
   bottom: 0;
   padding: 5px;
+  padding-bottom: 10px;
   pointer-events: auto;
 
   font: 14px/16px Arial, Helvetica, sans-serif;
