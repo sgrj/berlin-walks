@@ -1,6 +1,7 @@
 {
   "name": "walk-react",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.4"
