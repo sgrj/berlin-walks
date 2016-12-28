@@ -8,6 +8,12 @@ import datetime
 ns = {'ns': 'http://www.topografix.com/GPX/1/1'}
 
 if __name__ == '__main__':
+
+    if len(sys.argv) != 5:
+        print 'Usage: %s <gpx-file> <title> <distance> <string containing walkers>' % sys.argv[0]
+        print "Example: %s track.gpx 'Briesener Berge' 14 'Mia, Guilherme, Vesta and me meet'" % sys.argv[0]
+        sys.exit(1)
+
     gpx_file = sys.argv[1]
     title = sys.argv[2]
     distance = sys.argv[3]
