@@ -9,7 +9,7 @@
     "lodash": "4.17.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "leaflet": "file:../playground/Leaflet",
+    "leaflet": "git://github.com/sgrj/Leaflet.git#0892a42facd932e22eaee0204ea391fe2dcfc87e",
     "react-leaflet": "^1.0.2"
   },
   "scripts": {

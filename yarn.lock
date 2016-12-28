@@ -3131,8 +3131,9 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-"leaflet@file:../playground/Leaflet":
+"leaflet@git://github.com/sgrj/Leaflet.git#0892a42facd932e22eaee0204ea391fe2dcfc87e":
   version "1.0.2"
+  resolved "git://github.com/sgrj/Leaflet.git#0892a42facd932e22eaee0204ea391fe2dcfc87e"
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
