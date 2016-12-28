@@ -2,21 +2,24 @@
   "name": "berlin-walks",
   "version": "0.1.0",
   "license": "MIT",
+  "homepage": "https://sgrj.github.io/berlin-walks",
   "private": true,
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "react-scripts": "0.8.4"
   },
   "dependencies": {
+    "leaflet": "git://github.com/sgrj/Leaflet.git#4ca85c282694d8cf2fc3902956b95cc97eb368fd",
     "lodash": "4.17.2",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "leaflet": "git://github.com/sgrj/Leaflet.git#0892a42facd932e22eaee0204ea391fe2dcfc87e",
     "react-leaflet": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "yarn run build&&gh-pages -d build"
   }
 }
