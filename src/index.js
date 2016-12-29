@@ -6,6 +6,6 @@ import WalksMap from './walks-map';
 import walks from './walks';
 
 ReactDOM.render(
-  <WalksMap walks={walks}/>,
+  <WalksMap walks={walks} />,
   document.getElementById('root')
 );

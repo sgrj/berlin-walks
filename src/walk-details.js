@@ -26,11 +26,10 @@ function WalkDetails(props) {
     return i % 2 === 0 ? participatsLinks[i / 2] : ' • ';
   });
 
-  const blogLink = props.walk.blog ?
-    [
-      separator,
-      <a className='blog' target='_blank' href={props.walk.blog} key='blog'>blog</a>
-    ] : '';
+  const blogLink = props.walk.blog ? [
+    separator,
+    <a className='blog' target='_blank' href={props.walk.blog} key='blog'>blog</a>
+  ] : '';
 
   return (
     <div className='walk-details'>
