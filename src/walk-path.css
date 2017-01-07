@@ -1,13 +1,15 @@
-path {
+path.walk-path {
   stroke: #1175FF;
   stroke-width: 2px;
   opacity: .8;
 
   transition: stroke .2s, stroke-width .2s;
   transition-timing-function: ease-in;
+
+  pointer-events: none !important;
 }
 
-path.highlighted {
+path.walk-path.highlighted {
   stroke: #FF9F00;
   stroke-width: 2px;
 
@@ -15,11 +17,13 @@ path.highlighted {
   transition-timing-function: ease-out;
 }
 
-path.selected {
+path.walk-path.selected {
   stroke-width: 3.5px;
 }
 
-path.hover {
+/* Also show hover effect when hovering over a hidden preceding sibling. */
+path.walk-path:hover,
+path.hidden:hover + path.walk-path {
   stroke-width: 4px;
   transition: stroke-width .2s;
   transition-timing-function: ease;
@@ -29,6 +33,7 @@ path.hover {
 path.hidden {
   opacity: 0;
   stroke-width: 20px;
+  pointer-events: initial !important;
 }
 
 
