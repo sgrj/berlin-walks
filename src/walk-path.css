@@ -5,6 +5,8 @@ path.walk-path {
 
   transition: stroke .2s, stroke-width .2s;
   transition-timing-function: ease-in;
+
+  pointer-events: none !important;
 }
 
 path.walk-path.highlighted {
@@ -19,7 +21,9 @@ path.walk-path.selected {
   stroke-width: 3.5px;
 }
 
-path.walk-path.hover {
+/* Also show hover effect when hovering over a hidden preceding sibling. */
+path.walk-path:hover,
+path.hidden:hover + path.walk-path {
   stroke-width: 4px;
   transition: stroke-width .2s;
   transition-timing-function: ease;
@@ -29,6 +33,7 @@ path.walk-path.hover {
 path.hidden {
   opacity: 0;
   stroke-width: 20px;
+  pointer-events: initial !important;
 }
 
 
