@@ -17,7 +17,7 @@ class WalkPath extends React.Component {
     this.setState({ hover: false });
   }
   render() {
-    var className = '';
+    var className = 'walk-path';
     if (this.state.hover) {
       className += ' hover';
     }

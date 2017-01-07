@@ -1,4 +1,4 @@
-path {
+path.walk-path {
   stroke: #1175FF;
   stroke-width: 2px;
   opacity: .8;
@@ -7,7 +7,7 @@ path {
   transition-timing-function: ease-in;
 }
 
-path.highlighted {
+path.walk-path.highlighted {
   stroke: #FF9F00;
   stroke-width: 2px;
 
@@ -15,11 +15,11 @@ path.highlighted {
   transition-timing-function: ease-out;
 }
 
-path.selected {
+path.walk-path.selected {
   stroke-width: 3.5px;
 }
 
-path.hover {
+path.walk-path.hover {
   stroke-width: 4px;
   transition: stroke-width .2s;
   transition-timing-function: ease;
