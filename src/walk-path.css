@@ -5,8 +5,6 @@ path.walk-path {
 
   transition: stroke .2s, stroke-width .2s;
   transition-timing-function: ease-in;
-
-  pointer-events: none !important;
 }
 
 path.walk-path.highlighted {
@@ -33,7 +31,6 @@ path.hidden:hover + path.walk-path {
 path.hidden {
   opacity: 0;
   stroke-width: 20px;
-  pointer-events: initial !important;
 }
 
 
