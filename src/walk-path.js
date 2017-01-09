@@ -24,6 +24,7 @@ class WalkPath extends React.Component {
         />
         <Polyline
           className={className}
+          interactive=false
           positions={this.props.positions} />
       </div>
     );
